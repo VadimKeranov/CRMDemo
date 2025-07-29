@@ -1,0 +1,15 @@
+version: "3.9"
+
+services:
+  frontend:
+    build: .
+    container_name: react_app
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./src:/app/src
+      - ./public:/app/public
+    environment:
+      - VITE_API_URL=http://localhost:5000
+    stdin_open: true
+    tty: true
